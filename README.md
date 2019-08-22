@@ -1,5 +1,5 @@
-CS451 Group Project
-Group 5	Team Members:
+CS451 Group Project (Group #5)
+Team Members:
 
 	1. pr383@drexel.edu - Rai, Pankaj
 	

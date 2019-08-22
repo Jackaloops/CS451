@@ -1,0 +1,31 @@
+package checkers;
+
+public class JumpMove extends Move{
+
+	
+	// Constructor
+	public JumpMove(Piece piece, Position position) {}
+	
+	//
+	public Piece getPiece() {}
+	
+	//
+	public Position getDestination() {}
+	
+	/**
+	 * This function increments the value of the Complex object
+	 * by the value of the given Complex.
+	 *
+	 * @param other The Complex number that we increase the current complex by
+	 */
+	
+	// 
+	public boolean isJump() {}
+	
+	//
+	public boolean equals(Object other) {}
+	
+	// 
+	public String toString() {}
+	
+}

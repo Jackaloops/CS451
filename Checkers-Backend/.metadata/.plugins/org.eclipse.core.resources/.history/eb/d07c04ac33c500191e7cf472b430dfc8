@@ -1,0 +1,10 @@
+package checkers;
+
+public class SimpleMove extends Move {
+	
+	// Constructor 
+	public SimpleMove(Piece piece, Position position) {}
+	
+	// 
+
+}

@@ -1,0 +1,15 @@
+package checkers;
+
+public class CheckersColor  {
+
+
+	public void checkersColor(int colored) {}
+
+	public Boolean equals() {
+		return null;
+	}
+	
+	public String toString() {
+		return null;}
+
+}

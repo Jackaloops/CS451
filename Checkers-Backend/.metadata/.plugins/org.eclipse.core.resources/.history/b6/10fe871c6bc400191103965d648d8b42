@@ -1,0 +1,16 @@
+package checkers;
+
+public class JumpMove {
+
+	
+	/**
+	 * This function increments the value of the Complex object
+	 * by the value of the given Complex.
+	 *
+	 * @param other The Complex number that we increase the current complex by
+	 */
+	
+	public void validMove() {}
+	
+	
+}

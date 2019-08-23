@@ -4,6 +4,8 @@ import controller.screenSwitchController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TitleScreen extends Screen {
 
@@ -16,14 +18,23 @@ public class TitleScreen extends Screen {
         title.setFont( new Font( title.getFont().getFontName(), Font.PLAIN, 42 ));
         title.setForeground( Color.BLACK );
         title.setAlignmentX( Component.CENTER_ALIGNMENT );
-//        title.setBorder( BorderFactory.createLineBorder( Color.RED ));
-//        title.setPreferredSize( new Dimension( 300, 100 ));
 
+        //buttons creation
         JButton createSessionButton = makeButton( "Create Session" );
+
         JButton joinSessionButton = makeButton( "Join Session" );
+
         JButton howToButton = makeButton( "How To Play" );
         howToButton.addActionListener( new screenSwitchController( mainFrame, new HowToPlayScreen()));
+
         JButton quitButton = makeButton( "Quit" );
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent actionEvent ) {
+                System.exit(0 );
+            }
+        });
+
 
         //make layout
         JPanel titlePanel = new JPanel();

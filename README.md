@@ -1,4 +1,4 @@
-CS451 Group Project (Group #5)
+CS451 Group Project (Section 1 - Group #5)
 
 Team Members:
 

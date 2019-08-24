@@ -21,8 +21,10 @@ public class TitleScreen extends Screen {
 
         //buttons creation
         JButton createSessionButton = makeButton( "Create Session" );
+        createSessionButton.addActionListener( new screenSwitchController( mainFrame, new CreateSessionScreen()));
 
         JButton joinSessionButton = makeButton( "Join Session" );
+        joinSessionButton.addActionListener( new screenSwitchController( mainFrame, new JoinSessionScreen()));
 
         JButton howToButton = makeButton( "How To Play" );
         howToButton.addActionListener( new screenSwitchController( mainFrame, new HowToPlayScreen()));

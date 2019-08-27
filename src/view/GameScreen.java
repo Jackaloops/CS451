@@ -79,7 +79,7 @@ public class GameScreen extends Screen {
 						@Override
 						public void mouseClicked( MouseEvent mouseEvent ) {
 							squarePane s = ((squarePane)mouseEvent.getSource());
-							if( selectedSq == null && s.getState() == user) {
+							if( selectedSq == null && s.getState() == user && s.getState() == user + 2) {
 								s.setBackground( Color.RED );
 								selectedSq = s;
 							}

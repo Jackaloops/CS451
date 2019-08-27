@@ -41,4 +41,12 @@ public class Client{
       return "Error";
     }
   }
+
+  public void close() throws IOException {
+    input.close();
+    output.close();
+    socket.close();
+    socket.shutdownInput();
+    socket.shutdownOutput();
+  }
 }

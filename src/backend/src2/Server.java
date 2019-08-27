@@ -44,4 +44,13 @@ public class Server
         return "Error";
       }
     }
+
+    public void close() throws IOException {
+        output.close();
+        input.close();
+        server.close();
+        socket.close();
+        socket.shutdownInput();
+        socket.shutdownOutput();
+    }
 }

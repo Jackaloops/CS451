@@ -157,7 +157,7 @@ public class GameScreen extends Screen {
 		sidePane.setPreferredSize( new Dimension( 360, 360 ));
 		sidePane.setBorder( BorderFactory.createLineBorder( Color.YELLOW ));
 
-		contentPane.add( sidePane, BorderLayout.EAST );
+//		contentPane.add( sidePane, BorderLayout.EAST );
 
 		mainFrame.setContentPane( contentPane );
 		mainFrame.pack();

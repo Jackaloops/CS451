@@ -169,7 +169,10 @@ public class Checkers extends Thread {
     return res;
   }
   public int[][] strToBoard(String str){
-
+    if( str.equals("Error")) {
+      JOptionPane.showMessageDialog( boardPane, "ERROR: Other player has quit!");
+      return board;
+    }
     int[][] board = new int[8][8];
     for(int i = 0; i < str.length(); i++)
       board[i/8][i%8] = toi(str.charAt(i) + "");

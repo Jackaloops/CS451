@@ -131,7 +131,7 @@ public class Checkers extends Thread {
           return 0;
         } else {
           int m = board[(x1 + x2) / 2][(y1 + y2) / 2];
-          if(p % 2 == m % 2) {
+          if(p % 2 == m % 2 || m == 0) {
             JOptionPane.showMessageDialog( boardPane, "Invalid Move!");
             System.out.println("error - 6");
             move = 0;

@@ -6,6 +6,8 @@ import view.board.squarePane;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.nio.Buffer;
 
@@ -21,6 +23,7 @@ public class Checkers extends Thread {
   private int portNum;
   private JFrame mainFrame;
   private JPanel boardPane;
+  private JLabel turnIndicator;
   public int move = 0;
 
   public void run() {
@@ -240,8 +243,10 @@ public class Checkers extends Thread {
       if(move == 2 && checkCapture(1)) // If a piece is captured and more can be captured, continue playing
         continue;
       System.out.println("sending");
+      togglePlayerIndicator();
       server.send(boardToStr(board));
       String str = server.receive();
+      togglePlayerIndicator();
       if(str.equals("forfeit")){
         System.out.println("You won!!!");
         JOptionPane.showMessageDialog( boardPane, "You win!");
@@ -272,9 +277,9 @@ public class Checkers extends Thread {
     initBoard();
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     while(true){
-      System.out.println("asdf");
-
+//      System.out.println("asdf");
       String str = client.receive();
+      togglePlayerIndicator();
       if(str.equals("forfeit")){
         System.out.println("You won!!!");
         JOptionPane.showMessageDialog( boardPane, "You win!");
@@ -323,12 +328,17 @@ public class Checkers extends Thread {
         break;
       }
       System.out.println("sending");
+      togglePlayerIndicator();
       client.send(boardToStr(board));
     }
   }
 
   public void setBoardPane( JPanel board ) {
     boardPane = board;
+  }
+
+  public void setIndicator( JLabel ind ) {
+    turnIndicator = ind;
   }
 
   public void updateBoard() {
@@ -372,8 +382,24 @@ public class Checkers extends Thread {
       client.send("forfeit");
   }
 
+  public void togglePlayerIndicator() {
+    if( turnIndicator.getText().contains("White")) {
+      turnIndicator.setText( "Black player's turn");
+    }
+    else {
+      turnIndicator.setText( "White player's turn");
+    }
+    mainFrame.repaint();
+  }
+
   public Checkers( JFrame frame) {
     mainFrame = frame;
+    mainFrame.addWindowListener(new WindowAdapter() {
+      @Override
+      public void windowClosing( WindowEvent e ) {
+        System.exit(0);
+      }
+    });
   }
 
   public Checkers( JFrame frame, String IP, int portNum ){

@@ -24,6 +24,7 @@ public class GameScreen extends Screen {
 	Checkers checkers;
 	private int user;
 	private JPanel boardPane;
+	private JLabel turnIndicator;
 	private squarePane selectedSq = null;
 
 	public GameScreen( Checkers check, int u ) {
@@ -37,11 +38,12 @@ public class GameScreen extends Screen {
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout( new BorderLayout());
 
-//		JLabel turnIndicator = new JLabel( "Red Player's Turn" );
-//		turnIndicator.setBorder( new EmptyBorder( 5, 5, 5, 5 ));
-//		turnIndicator.setHorizontalAlignment( SwingConstants.CENTER );
+		turnIndicator = new JLabel( "White Player's Turn" );
+		turnIndicator.setBorder( new EmptyBorder( 5, 5, 5, 5 ));
+		turnIndicator.setHorizontalAlignment( SwingConstants.CENTER );
+		checkers.setIndicator( turnIndicator );
 
-//		contentPane.add( turnIndicator, BorderLayout.NORTH );
+		contentPane.add( turnIndicator, BorderLayout.NORTH );
 
 		// make board
 		boardPane = new JPanel();
@@ -124,8 +126,8 @@ public class GameScreen extends Screen {
 		contentPane.add( boardWrapper, BorderLayout.CENTER );
 
 		// make sidebar
-		JPanel sidePane = new JPanel();
-		sidePane.setLayout( new BoxLayout( sidePane, BoxLayout.Y_AXIS ));
+//		JPanel sidePane = new JPanel();
+//		sidePane.setLayout( new BoxLayout( sidePane, BoxLayout.Y_AXIS ));
 
 //		JButton drawButton = new JButton( "Draw" );
 //		drawButton.setAlignmentX( Component.CENTER_ALIGNMENT );
@@ -138,29 +140,32 @@ public class GameScreen extends Screen {
 ////
 ////			}
 ////		});
-		JButton forfeitButton = new JButton( "Forfeit" );
-
-		forfeitButton.setAlignmentX( Component.CENTER_ALIGNMENT );
-
-		JLabel redCapture = new JLabel( "Captured Red Pieces: 0");
-		redCapture.setHorizontalAlignment( SwingConstants.CENTER );
-		redCapture.setAlignmentX( Component.CENTER_ALIGNMENT );
-		JLabel blackCapture = new JLabel( "Captured Black Pieces: 0");
-		blackCapture.setHorizontalAlignment( SwingConstants.CENTER );
-		blackCapture.setAlignmentX( Component.CENTER_ALIGNMENT );
+//		JButton forfeitButton = new JButton( "Forfeit" );
+//
+//		forfeitButton.setAlignmentX( Component.CENTER_ALIGNMENT );
+//
+//		JLabel redCapture = new JLabel( "Captured Red Pieces: 0");
+//		redCapture.setHorizontalAlignment( SwingConstants.CENTER );
+//		redCapture.setAlignmentX( Component.CENTER_ALIGNMENT );
+//		JLabel blackCapture = new JLabel( "Captured Black Pieces: 0");
+//		blackCapture.setHorizontalAlignment( SwingConstants.CENTER );
+//		blackCapture.setAlignmentX( Component.CENTER_ALIGNMENT );
 
 //		sidePane.add( drawButton );
-		sidePane.add( forfeitButton );
-		sidePane.add( redCapture );
-		sidePane.add( blackCapture );
-
-		sidePane.setPreferredSize( new Dimension( 360, 360 ));
-		sidePane.setBorder( BorderFactory.createLineBorder( Color.YELLOW ));
+//		sidePane.add( forfeitButton );
+//		sidePane.add( redCapture );
+//		sidePane.add( blackCapture );
+//
+//		sidePane.setPreferredSize( new Dimension( 360, 360 ));
+//		sidePane.setBorder( BorderFactory.createLineBorder( Color.YELLOW ));
 
 //		contentPane.add( sidePane, BorderLayout.EAST );
 
 		mainFrame.setContentPane( contentPane );
 		mainFrame.pack();
 		mainFrame.setVisible( true );
+
+		String playerColor = ( user == 1 ) ? "white" : "black";
+		JOptionPane.showMessageDialog( contentPane, "You are the " + playerColor + " player");
 	}
 }
